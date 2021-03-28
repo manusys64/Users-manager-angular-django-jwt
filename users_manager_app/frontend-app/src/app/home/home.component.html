@@ -3,14 +3,18 @@
         <div class="brand">
             Users Manager
         </div>
-        <nav *ngIf="authService.currentUserValue.username">
-            <div class="user"
+        <nav class="nav" *ngIf="authService.currentUserValue.username">
+            <div class="nav-item user"
                 >
                 {{ authService.currentUserValue.username }}
             </div>
-            <a (click)="logout()" class="btn btn-red">
+            <div (click)="logout()" class="nav-item btn btn-red">
                 Logout
-            </a>
+            </div>
         </nav>
     </header>
+
+    <section class="container">
+       hello {{authService.currentUserValue.username}}
+    </section>
 </div>

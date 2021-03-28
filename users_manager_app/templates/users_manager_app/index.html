@@ -6,11 +6,12 @@
   <title>Angular, Django Rest Framework, and JWT token demo</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'frontend-app/styles.css' %}">
+  
 </head>
 <body>
-  <div class="container">
     
-    <app-root>Loading the app...</app-root>
+    <app-root id="app">Loading the app...</app-root>
  
     <script type="text/javascript" src="{% static 'frontend-app/runtime.js' %}"></script>
     <script type="text/javascript" src="{% static 'frontend-app/polyfills.js' %}"></script>
@@ -19,6 +20,5 @@
     <script type="text/javascript" src="{% static 'frontend-app/main.js' %}"></script>
     
     
-  </div>
 </body>
 </html>

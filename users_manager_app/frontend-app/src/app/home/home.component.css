@@ -1,0 +1,37 @@
+.home {
+    height: 100%;
+    width: 100%;
+    background : #fff6f3;
+}
+
+.header {
+    background: -webkit-linear-gradient(right, #e20C0C, #e54d34, #e20C0C, #e54d34);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+}
+
+.header .brand {
+    padding: 1rem 2rem;
+    cursor: pointer;
+
+}
+
+.header .nav {
+    display: flex;
+    padding: 0 2rem;
+}
+
+.header .nav .nav-item {
+    padding: 1rem 0.5rem;
+    cursor: pointer;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    padding: 5rem;
+}
