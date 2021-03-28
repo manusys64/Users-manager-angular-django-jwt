@@ -15,6 +15,7 @@ var app_component_1 = require("./app.component");
 var auth_component_1 = require("./auth/auth.component");
 var forms_1 = require("@angular/forms");
 var home_component_1 = require("./home/home.component");
+var core_2 = require("./core");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -29,9 +30,12 @@ var AppModule = /** @class */ (function () {
                 platform_browser_1.BrowserModule,
                 app_routing_module_1.AppRoutingModule,
                 forms_1.FormsModule,
-                http_1.HttpClientModule
+                http_1.HttpClientModule,
+                forms_1.ReactiveFormsModule,
             ],
-            providers: [],
+            providers: [
+                { provide: http_1.HTTP_INTERCEPTORS, useClass: core_2.JwtInterceptor, multi: true },
+            ],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

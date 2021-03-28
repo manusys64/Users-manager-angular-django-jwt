@@ -6,7 +6,9 @@ exports.__esModule = true;
 exports.environment = void 0;
 exports.environment = {
     production: false,
-    apiUrl: 'https://localhost:8000/'
+    apiUrl: 'http://localhost:8000',
+    jwtLogin: 'api-token-auth/',
+    jwtRefresh: 'api-token-refresh/'
 };
 /*
  * For easier debugging in development mode, you can import the following file

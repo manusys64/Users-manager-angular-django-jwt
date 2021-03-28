@@ -6,29 +6,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.AppComponent = void 0;
+exports.HomeComponent = void 0;
 var core_1 = require("@angular/core");
-var AppComponent = /** @class */ (function () {
-    function AppComponent(router, authService) {
-        var _this = this;
+var HomeComponent = /** @class */ (function () {
+    function HomeComponent(route, router, authService) {
+        this.route = route;
         this.router = router;
         this.authService = authService;
-        this.title = 'frontend-app';
-        this.authService.currentUser.subscribe(function (x) { return _this.currentUser = x; });
+        this.accessToken = '';
+        this.refreshToken = '';
     }
-    AppComponent.prototype.ngOnInit = function () {
+    HomeComponent.prototype.ngOnInit = function () {
+        this.accessToken = localStorage.getItem('access_token');
+        this.refreshToken = localStorage.getItem('refresh_token');
     };
-    AppComponent.prototype.logout = function () {
+    HomeComponent.prototype.logout = function () {
         this.authService.logout();
         this.router.navigate(['/login']);
     };
-    AppComponent = __decorate([
+    HomeComponent = __decorate([
         core_1.Component({
-            selector: 'app-root',
-            templateUrl: './app.component.html',
-            styleUrls: ['./app.component.css']
+            selector: 'app-home',
+            templateUrl: './home.component.html',
+            styleUrls: ['./home.component.css']
         })
-    ], AppComponent);
-    return AppComponent;
+    ], HomeComponent);
+    return HomeComponent;
 }());
-exports.AppComponent = AppComponent;
+exports.HomeComponent = HomeComponent;

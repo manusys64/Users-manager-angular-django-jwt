@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from './core';
+import { Router } from '@angular/router';
+import { AuthService, User } from './core';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,21 @@ import { AuthService } from './core';
 })
 export class AppComponent {
   title = 'frontend-app';
-  constructor(public authService: AuthService) {}
 
-  ngOnInit(): void {}
+  currentUser: User;
+  constructor(
+        private router: Router,
+        private authService: AuthService
+    ) {
+    this.authService.currentUser.subscribe(x => this.currentUser = x);
+    }
+
+  ngOnInit(): void {
+
+  }
 
   logout() {
-    this.authService.logout();
-  }
+        this.authService.logout();
+        this.router.navigate(['/login']);
+    }
 }

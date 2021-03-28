@@ -11,14 +11,19 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var auth_component_1 = require("./auth/auth.component");
 var home_component_1 = require("./home/home.component");
-// import { AuthGuard } from './core';
+var core_2 = require("./core");
 var routes = [
     {
         path: '',
         pathMatch: 'full',
-        component: home_component_1.HomeComponent
+        component: home_component_1.HomeComponent,
+        canActivate: [core_2.AuthGuard]
     },
-    { path: 'login', component: auth_component_1.AuthComponent },
+    {
+        path: 'login',
+        component: auth_component_1.AuthComponent,
+        canActivate: [core_2.GuestGuard]
+    },
     { path: '**', redirectTo: '' },
 ];
 var AppRoutingModule = /** @class */ (function () {

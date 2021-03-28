@@ -1,7 +1,7 @@
 <header class="header">
-    <a class="brand" routerLink="">User Manager</a>
+    <!-- <a class="brand" routerLink="">User Manager</a> -->
     
-      <nav class="nav">
+      <!-- <nav class="nav">
               
               <a class="nav-link" routerLinkActive="active" routerLink="login">Demo APIs</a>
               <a class="nav-link" routerLinkActive="active" routerLink="management">Management Area</a>
@@ -10,13 +10,13 @@
                 <button
                 class="btn btn-red"
                 type="button"
-                *ngIf="authService.user$ | async as user"
+                *ngIf="currentUser"
                 (click)="logout()"
               >
                 Logout
               </button>
               </div>
-      </nav>
+      </nav> -->
 </header>
     <main class="content">
       <router-outlet></router-outlet>
