@@ -10,11 +10,15 @@ exports.UserService = void 0;
 var core_1 = require("@angular/core");
 var environment_1 = require("src/environments/environment");
 var UserService = /** @class */ (function () {
-    function UserService(http) {
+    function UserService(http, authService) {
         this.http = http;
+        this.authService = authService;
     }
     UserService.prototype.getAll = function () {
         return this.http.get(environment_1.environment.apiUrl + "/users");
+    };
+    UserService.prototype.create = function (data) {
+        return this.http.post(environment_1.environment.apiUrl + "/" + environment_1.environment.userApi, data);
     };
     UserService = __decorate([
         core_1.Injectable({ providedIn: 'root' })

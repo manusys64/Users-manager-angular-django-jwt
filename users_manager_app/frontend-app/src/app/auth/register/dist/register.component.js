@@ -6,61 +6,71 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.LoginComponent = void 0;
+exports.RegisterComponent = void 0;
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var operators_1 = require("rxjs/operators");
-var LoginComponent = /** @class */ (function () {
-    function LoginComponent(formBuilder, route, router, authService) {
+var RegisterComponent = /** @class */ (function () {
+    function RegisterComponent(formBuilder, route, router, authService, userService) {
         this.formBuilder = formBuilder;
         this.route = route;
         this.router = router;
         this.authService = authService;
+        this.userService = userService;
         this.loading = false;
         this.submitted = false;
         this.error = '';
     }
-    LoginComponent.prototype.ngOnInit = function () {
-        this.loginForm = this.formBuilder.group({
+    RegisterComponent.prototype.ngOnInit = function () {
+        this.registerForm = this.formBuilder.group({
             username: ['', forms_1.Validators.required],
-            password: ['', forms_1.Validators.required]
+            email: ['', forms_1.Validators.required],
+            password: ['', forms_1.Validators.required],
+            confirm_password: ['', forms_1.Validators.required]
         });
         // reset login status
         this.authService.logout();
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     };
-    Object.defineProperty(LoginComponent.prototype, "f", {
+    Object.defineProperty(RegisterComponent.prototype, "f", {
         // convenience getter for easy access to form fields
-        get: function () { return this.loginForm.controls; },
+        get: function () { return this.registerForm.controls; },
         enumerable: false,
         configurable: true
     });
-    LoginComponent.prototype.onSubmit = function () {
+    RegisterComponent.prototype.onSubmit = function () {
         var _this = this;
         this.submitted = true;
         // stop here if form is invalid
-        if (this.loginForm.invalid) {
+        if (this.registerForm.invalid) {
             return;
         }
         this.loading = true;
-        this.authService.login(this.f.username.value, this.f.password.value)
+        this.authService.register(this.f.username.value, this.f.password.value, this.f.confirm_password.value, this.f.email.value)
             .pipe(operators_1.first())
             .subscribe(function (data) {
-            _this.router.navigate([_this.returnUrl]);
-        }, function (error) {
+            _this.authService.login(_this.f.username.value, _this.f.password.value)
+                .pipe(operators_1.first())
+                .subscribe(function (data) {
+                _this.router.navigate([_this.returnUrl]);
+            }), (function (error) {
+                _this.error = error;
+                _this.loading = false;
+            });
+        }), (function (error) {
             _this.error = error;
             _this.loading = false;
         });
         this.router.navigate([this.returnUrl]);
     };
-    LoginComponent = __decorate([
+    RegisterComponent = __decorate([
         core_1.Component({
-            selector: 'app-login',
-            templateUrl: './login.component.html',
-            styleUrls: ['./login.component.css']
+            selector: 'app-register',
+            templateUrl: './register.component.html',
+            styleUrls: ['./register.component.css']
         })
-    ], LoginComponent);
-    return LoginComponent;
+    ], RegisterComponent);
+    return RegisterComponent;
 }());
-exports.LoginComponent = LoginComponent;
+exports.RegisterComponent = RegisterComponent;

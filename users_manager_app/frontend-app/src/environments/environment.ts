@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   apiUrl: 'http://localhost:8000',
   jwtLogin: 'api-token-auth/',
+  userApi: 'api/users/',
   jwtRefresh: 'api-token-refresh/',
 };
 

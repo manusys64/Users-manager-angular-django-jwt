@@ -45,6 +45,9 @@ var AuthService = /** @class */ (function () {
         }));
         // .subscribe( data => console.log('data'), error => console.log('error'))
     };
+    AuthService.prototype.register = function (username, password, confirm_password, email) {
+        return this.http.post(environment_1.environment.apiUrl + "/api/register/", { username: username, password: password, confirm_password: confirm_password, email: email });
+    };
     AuthService.prototype.refreshToken = function () {
         var _this = this;
         console.log('this.currentUserValue.refreshToken');

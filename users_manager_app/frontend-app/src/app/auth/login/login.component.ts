@@ -71,11 +71,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate([this.returnUrl]);
     }
 
-    public changeRoute(d) {
-
-      this.router.navigate([d])
-  }
-
+    
 
 }
 

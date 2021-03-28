@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { User } from '../_models/user';
 import { environment } from 'src/environments/environment';
 import jwtDecode from 'jwt-decode';
+import { UserService } from './user.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -42,7 +43,10 @@ export class AuthService {
             )
             // .subscribe( data => console.log('data'), error => console.log('error'))
     }
-
+    register(username: string, password: string , confirm_password: string , email: string  ) {
+        return this.http.post<any>(`${environment.apiUrl}/api/register/`, { username, password , confirm_password , email  })
+            
+    }
     refreshToken() {
         console.log('this.currentUserValue.refreshToken')
         console.log(this.currentUserValue.refreshToken)
