@@ -6,12 +6,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.AuthComponent = void 0;
+exports.LoginComponent = void 0;
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var operators_1 = require("rxjs/operators");
-var AuthComponent = /** @class */ (function () {
-    function AuthComponent(formBuilder, route, router, authService) {
+var LoginComponent = /** @class */ (function () {
+    function LoginComponent(formBuilder, route, router, authService) {
         this.formBuilder = formBuilder;
         this.route = route;
         this.router = router;
@@ -20,7 +20,7 @@ var AuthComponent = /** @class */ (function () {
         this.submitted = false;
         this.error = '';
     }
-    AuthComponent.prototype.ngOnInit = function () {
+    LoginComponent.prototype.ngOnInit = function () {
         this.loginForm = this.formBuilder.group({
             username: ['', forms_1.Validators.required],
             password: ['', forms_1.Validators.required]
@@ -30,13 +30,13 @@ var AuthComponent = /** @class */ (function () {
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     };
-    Object.defineProperty(AuthComponent.prototype, "f", {
+    Object.defineProperty(LoginComponent.prototype, "f", {
         // convenience getter for easy access to form fields
         get: function () { return this.loginForm.controls; },
         enumerable: false,
         configurable: true
     });
-    AuthComponent.prototype.onSubmit = function () {
+    LoginComponent.prototype.onSubmit = function () {
         var _this = this;
         this.submitted = true;
         // stop here if form is invalid
@@ -54,16 +54,16 @@ var AuthComponent = /** @class */ (function () {
         });
         this.router.navigate([this.returnUrl]);
     };
-    AuthComponent.prototype.changeRoute = function (d) {
+    LoginComponent.prototype.changeRoute = function (d) {
         this.router.navigate([d]);
     };
-    AuthComponent = __decorate([
+    LoginComponent = __decorate([
         core_1.Component({
-            selector: 'app-auth',
-            templateUrl: './auth.component.html',
-            styleUrls: ['./auth.component.css']
+            selector: 'app-login',
+            templateUrl: './login.component.html',
+            styleUrls: ['./login.component.css']
         })
-    ], AuthComponent);
-    return AuthComponent;
+    ], LoginComponent);
+    return LoginComponent;
 }());
-exports.AuthComponent = AuthComponent;
+exports.LoginComponent = LoginComponent;

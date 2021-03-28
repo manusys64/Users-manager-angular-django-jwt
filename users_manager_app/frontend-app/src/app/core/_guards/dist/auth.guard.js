@@ -6,29 +6,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.AppComponent = void 0;
+exports.AuthGuard = void 0;
 var core_1 = require("@angular/core");
-var AppComponent = /** @class */ (function () {
-    function AppComponent(router, authService) {
-        var _this = this;
+var AuthGuard = /** @class */ (function () {
+    function AuthGuard(router, authService) {
         this.router = router;
         this.authService = authService;
-        this.title = 'frontend-app';
-        this.authService.currentUser.subscribe(function (x) { return _this.currentUser = x; });
     }
-    AppComponent.prototype.ngOnInit = function () {
-    };
-    AppComponent.prototype.logout = function () {
-        this.authService.logout();
+    AuthGuard.prototype.canActivate = function (route, state) {
+        var currentUser = this.authService.currentUserValue;
+        if (currentUser) {
+            // logged in so return true
+            return true;
+        }
+        // not logged in so redirect to login page with the return url
         this.router.navigate(['/auth/login']);
+        // this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+        return false;
     };
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'app-root',
-            templateUrl: './app.component.html',
-            styleUrls: ['./app.component.css']
-        })
-    ], AppComponent);
-    return AppComponent;
+    AuthGuard = __decorate([
+        core_1.Injectable({ providedIn: 'root' })
+    ], AuthGuard);
+    return AuthGuard;
 }());
-exports.AppComponent = AppComponent;
+exports.AuthGuard = AuthGuard;

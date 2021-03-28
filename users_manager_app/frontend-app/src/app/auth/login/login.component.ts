@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import { AuthService } from '../core';
-
-
+import { AuthService } from '../../core';
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 
-export class AuthComponent implements OnInit {
+export class LoginComponent implements OnInit {
+
+
+
+
     loginForm: FormGroup;
     loading = false;
     submitted = false;

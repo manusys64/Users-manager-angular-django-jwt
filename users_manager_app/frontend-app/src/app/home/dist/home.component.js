@@ -22,7 +22,7 @@ var HomeComponent = /** @class */ (function () {
     };
     HomeComponent.prototype.logout = function () {
         this.authService.logout();
-        this.router.navigate(['/login']);
+        this.router.navigate(['/auth/login']);
     };
     HomeComponent = __decorate([
         core_1.Component({

@@ -12,6 +12,8 @@ var router_1 = require("@angular/router");
 var auth_component_1 = require("./auth/auth.component");
 var home_component_1 = require("./home/home.component");
 var core_2 = require("./core");
+var login_component_1 = require("./auth/login/login.component");
+var register_component_1 = require("./auth/register/register.component");
 var routes = [
     {
         path: '',
@@ -19,10 +21,24 @@ var routes = [
         component: home_component_1.HomeComponent,
         canActivate: [core_2.AuthGuard]
     },
+    // {
+    //   path: 'login',
+    //   component: AuthComponent,
+    //   canActivate: [GuestGuard],
+    // },
     {
-        path: 'login',
+        path: 'auth',
         component: auth_component_1.AuthComponent,
-        canActivate: [core_2.GuestGuard]
+        canActivate: [core_2.GuestGuard],
+        children: [
+            {
+                path: '',
+                pathMatch: 'full',
+                redirectTo: 'login'
+            },
+            { path: 'login', component: login_component_1.LoginComponent },
+            { path: 'register', component: register_component_1.RegisterComponent },
+        ]
     },
     { path: '**', redirectTo: '' },
 ];
