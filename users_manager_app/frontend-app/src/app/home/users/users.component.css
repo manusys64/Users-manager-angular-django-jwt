@@ -34,7 +34,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: -webkit-linear-gradient(right, #2523237e, #1f1c1b81, #27232383, #302b2a75);
+    background: #99999985;
     z-index: 4;
     display: flex;
     align-items: center;
@@ -46,9 +46,9 @@
     min-height: 500px;
     width: 400px;
     height: 550px;
-    box-shadow: 0 0 0.2rem 0.07rem #fff6f3d0;
-    background-color: #fff6f3d8;
-    padding: 0.5rem;
+    box-shadow: 0 0 0.2rem 0.07rem #7b7b7bb8;
+    background-color: #fff6f3;
+    padding: 0.5rem 0;
 
 }
 

@@ -9,7 +9,7 @@
     /* padding: 1rem; */
 }
 
-.new .form .group{
+.new .form .group {
     display: flex;
     margin: 0.5rem 0;
     align-items: center;
@@ -25,10 +25,11 @@
     margin: 0.2rem 0;
     padding: 0.2rem 0.5rem;
     font-size: 1rem;
-    border:  1px solid transparent;
+    border: 1px solid #ccc;
+    
     outline: none;
-    border-bottom: 1px solid rgb(66, 63, 63) ;
     transition: all 0.1 ease;
+    border-radius: 4px;
 }
 .new .form input.checkbox {
     flex: unset;
@@ -37,8 +38,8 @@
 }
 
 .new .form input:focus {
-    border-bottom: 1px solid transparent ;
-    border:  1px solid rgb(66, 63, 63);
+    border: 1px solid rgb(73, 73, 73);
+    box-shadow: 0 0 0.1rem 0.05rem rgb(73, 73, 73);
 
 }
 
