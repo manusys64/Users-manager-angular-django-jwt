@@ -8,17 +8,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.UserService = void 0;
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/common/http");
 var environment_1 = require("src/environments/environment");
 var UserService = /** @class */ (function () {
     function UserService(http, authService) {
         this.http = http;
         this.authService = authService;
+        this.httpOptions = {
+            headers: new http_1.HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.authService.currentUserValue.token
+            })
+        };
     }
     UserService.prototype.getAll = function () {
-        return this.http.get(environment_1.environment.apiUrl + "/users");
+        return this.http.get(environment_1.environment.apiUrl + "/api/users/", this.httpOptions);
     };
     UserService.prototype.create = function (data) {
-        return this.http.post(environment_1.environment.apiUrl + "/" + environment_1.environment.userApi, data);
+        return this.http.post(environment_1.environment.apiUrl + "/" + environment_1.environment.userApi + "/", data, this.httpOptions);
+    };
+    UserService.prototype.update = function (id, data) {
+        return this.http.put(environment_1.environment.apiUrl + "/" + environment_1.environment.userApi + "/" + id + "/", data, this.httpOptions);
+    };
+    UserService.prototype["delete"] = function (id) {
+        return this.http["delete"](environment_1.environment.apiUrl + "/" + environment_1.environment.userApi + "/" + id + "/", this.httpOptions);
+    };
+    UserService.prototype.get = function (id) {
+        return this.http.get(environment_1.environment.apiUrl + "/" + environment_1.environment.userApi + "/" + id + "/", this.httpOptions);
     };
     UserService = __decorate([
         core_1.Injectable({ providedIn: 'root' })

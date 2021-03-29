@@ -1,0 +1,40 @@
+  <div class="current" *ngIf="currentUser">
+    <form class="form">
+      <div class="group">
+        <label for="email">Username</label>
+        <input type="email" name="username" [(ngModel)]="currentUser.username"/>
+      </div>
+      <div class="group">
+        <label for="email">Email</label>
+        <input type="email" name="email" [(ngModel)]="currentUser.email"/>
+      </div>
+      <div class="group">
+          <label for="First name">First name</label>
+          <input type="text" name="first_name" [(ngModel)]="currentUser.first_name"/>
+        </div>
+    <div class="group">
+          <label for="Last name">Last name</label>
+          <input type="text" name="last_name" [(ngModel)]="currentUser.last_name"/>
+        </div>
+    <div class="group">
+        <label for="password">Password</label>
+        <input type="password" name="password" [(ngModel)]="currentUser.password"/>
+      </div>
+      
+    </form>
+
+    
+    <div class="param">
+
+      <button class="btn btn-red"  (click)="delete()">   Delete  </button>
+      <button class="btn btn-green" (click)="update()" >  Update   </button>
+    </div>
+
+    
+    <p>{{ message }}</p>
+  </div>
+
+  <div class="current" *ngIf="!currentUser">
+    <br />
+    <p>Cannot access this user...</p>
+  </div>

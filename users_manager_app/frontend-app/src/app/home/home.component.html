@@ -8,13 +8,24 @@
                 >
                 {{ authService.currentUserValue.username }}
             </div>
-            <div (click)="logout()" class="nav-item btn btn-red">
-                Logout
+            <div (click)="logout()" class="nav-item logout">
+                <fa-icon [icon]="faPowerOff"></fa-icon>
             </div>
         </nav>
     </header>
 
     <section class="container">
-       hello {{authService.currentUserValue.username}}
+       
+        <div class="users">
+                <div class="nav">
+                        <a routerLink="users" routerLinkActive="nav-item-active" class="nav-item">Users</a>
+                        <a routerLink="add" routerLinkActive="nav-item-active" class="nav-item">Add</a>
+                </div>
+
+                <div class="content">
+                    <router-outlet></router-outlet>
+                </div>
+        </div>
+        
     </section>
 </div>

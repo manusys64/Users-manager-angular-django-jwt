@@ -1,0 +1,88 @@
+.users {
+    width: 100%;
+      border-collapse: collapse;
+
+}
+.users th {
+    text-align: start;
+    padding: 1.5rem 1rem;
+}
+
+.users td {
+    padding: 1rem ;
+}
+.users tbody tr:hover {
+    box-shadow: 0 0 0.1rem 0.05rem  #2756AD;
+    color:   #2756AD;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/*
+.users .user{
+    display: flex   ;
+    width: 100%;
+}
+
+.user .user */
+
+
+.modal {
+   
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: -webkit-linear-gradient(right, #2523237e, #1f1c1b81, #27232383, #302b2a75);
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal .content {
+    min-width: 300px;
+    min-height: 500px;
+    width: 400px;
+    height: 550px;
+    box-shadow: 0 0 0.2rem 0.07rem #fff6f3d0;
+    background-color: #fff6f3d8;
+    padding: 0.5rem;
+
+}
+
+.modal .content .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem ;
+}
+
+.modal .content .header > * {
+    padding: 0.5rem 1rem 0 0;
+    margin-bottom: 2rem;
+}
+
+.modal .content .body {
+    padding: 0 2rem;
+}
+.modal .item {
+    display: flex;
+    padding: 0.5rem 0;
+    
+}
+.modal .item .label {
+  flex:1 1  40%;
+
+}
+.modal .item .value {
+  flex:1 1  60%;
+}
+.modal .param {
+    justify-content: flex-end;
+}
+.modal .body .edit {
+    margin-top: 4rem ;
+}
+
+

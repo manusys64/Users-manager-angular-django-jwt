@@ -1,0 +1,47 @@
+.current {
+    width: 600px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.current .form {
+    width: 100%;
+    /* padding: 1rem; */
+}
+
+.current .form .group{
+    display: flex;
+    margin: 0.5rem 0;
+    align-items: center;
+}
+
+.current .form label {
+    flex: 0 1 35%;
+    margin: 0.2rem 0;
+    font-weight: 500;
+}
+.current .form input {
+    flex: 0 1 60%;
+    margin: 0.2rem 0;
+    padding: 0.2rem 0.5rem;
+    font-size: 1rem;
+    border:  1px solid transparent;
+    outline: none;
+    border-bottom: 1px solid rgb(66, 63, 63) ;
+    transition: all 0.1 ease;
+}
+
+.current .form input:focus {
+    border-bottom: 1px solid transparent ;
+    border:  1px solid rgb(66, 63, 63);
+
+}
+
+.current .param {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2rem;
+}
+.current .param > *:not(:last-child) {
+    margin-right: 0.5rem;
+}

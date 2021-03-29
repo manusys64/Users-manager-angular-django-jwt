@@ -14,12 +14,21 @@ var home_component_1 = require("./home/home.component");
 var core_2 = require("./core");
 var login_component_1 = require("./auth/login/login.component");
 var register_component_1 = require("./auth/register/register.component");
+var users_component_1 = require("./home/users/users.component");
+var new_user_component_1 = require("./home/new-user/new-user.component");
+var user_component_1 = require("./home/user/user.component");
 var routes = [
     {
         path: '',
-        pathMatch: 'full',
+        // pathMatch: 'full',
         component: home_component_1.HomeComponent,
-        canActivate: [core_2.AuthGuard]
+        canActivate: [core_2.AuthGuard],
+        children: [
+            // { path: '', redirectTo: 'users', pathMatch: 'full' },
+            { path: 'users', component: users_component_1.UsersComponent },
+            { path: 'users/:id', component: user_component_1.UserComponent },
+            { path: 'add', component: new_user_component_1.NewUserComponent }
+        ]
     },
     // {
     //   path: 'login',

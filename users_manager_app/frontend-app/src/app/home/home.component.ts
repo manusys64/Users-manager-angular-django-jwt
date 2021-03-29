@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import { AuthService, User } from '../core';
 
 @Component({
@@ -8,13 +9,14 @@ import { AuthService, User } from '../core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  faPowerOff = faPowerOff;
   accessToken = '';
   refreshToken = '';
   constructor(
       private route: ActivatedRoute,
       private router: Router,
       public authService: AuthService,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.accessToken = localStorage.getItem('access_token');

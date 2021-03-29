@@ -1,11 +1,12 @@
 .home {
     height: 100%;
     width: 100%;
-    background : #fff6f3;
+    background : #fff;
 }
 
 .header {
     background: -webkit-linear-gradient(right, #e20C0C, #e54d34, #e20C0C, #e54d34);
+    box-shadow: 0 0.1rem 0.2rem 0.05rem #e54d34;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -35,3 +36,39 @@
     width: 100%;
     padding: 5rem;
 }
+
+
+
+
+.container .users {
+    margin: 0 auto;
+    max-width: 1250px;
+    box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem rgba(87, 95, 97, 0.24);
+    border-radius: 5px;
+}
+
+.users .nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    box-shadow: 0rem 0.1rem 0.2rem 0.05rem rgba(87, 95, 97, 0.24);
+
+}
+
+.users .nav .nav-item {
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    color: rgb(39, 86, 173);
+}
+.users .nav .nav-item-active {
+    font-weight: bold;
+    font-size: 1.15rem;
+}
+.nav-item.btn-add {
+    background-color: rgb(17, 134, 17);
+    color: white;    
+}
+.users .content {
+    padding: 1rem 0;
+}
+

@@ -5,13 +5,22 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard , GuestGuard } from './core';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { UsersComponent } from './home/users/users.component';
+import { NewUserComponent } from './home/new-user/new-user.component';
+import { UserComponent } from './home/user/user.component';
 
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
+    // pathMatch: 'full',
     component: HomeComponent,
     canActivate: [AuthGuard],
+    children: [
+      // { path: '', redirectTo: 'users', pathMatch: 'full' },
+      { path: 'users', component: UsersComponent },
+      { path: 'users/:id', component: UserComponent },
+      { path: 'add', component: NewUserComponent }
+    ]
   },
   // {
   //   path: 'login',

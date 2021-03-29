@@ -1,0 +1,103 @@
+<div >
+
+      <div *ngIf="currentUser" class="modal">
+        <div class="content">
+
+          <div class="header">
+            <div class="title"></div>
+            <div class="close" (click)="unsetUser()">
+                <fa-icon class="btn btn-close" [icon]="faTimes"></fa-icon>
+            </div>
+          </div>
+          <div class="body">
+
+            <div class="item">
+              <div class="label">
+                <strong>Username</strong>
+              </div> 
+              <div class="value">
+                
+                {{ currentUser.username }}
+              </div>
+            </div>
+            <div class="item">
+              <div class="label">
+                <strong>First NAme</strong>
+              </div>
+              
+              <div class="value">
+                
+                {{ currentUser.first_name || "N/A"}}
+              </div>
+            </div>
+            <div class="item">
+              <div class="label">
+                <strong>Last Name</strong>
+              </div>
+              
+              <div class="value">
+                
+                {{ currentUser.last_name || "N/A"}}
+              </div>
+            </div>
+            <div class="item">
+              <label class="label">
+                <strong>Email</strong>
+              </label>
+              
+              <div class="value">
+                
+                {{ currentUser.email || "N/A"}}
+              </div>
+            </div>
+            <div class="item param">
+
+              <a class="edit" routerLink="/users/{{ currentUser.id }}">
+                <fa-icon class="btn btn-edit" [icon]="faUserEdit"></fa-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+    </div>
+        
+  <table class="users">
+      <thead>
+
+          <tr>
+              <th>
+                  Username
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Name
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr
+            class="user" *ngFor="let user of users; let i = index"
+            [class.active]="i == currentIndex" (click)="setUser(user, i)">
+            
+            <td class="username item">
+                {{ user.username }}
+            </td>
+            <td class="email item">
+                {{ user.email || 'N/A'}}
+            </td>
+            <td class="name item">
+                {{ (user.first_name + ' ' +  user.last_name).length > 2 ? (user.first_name + ' ' +  user.last_name): "N/A"}}
+            </td>
+        </tr>
+        
+    </tbody>
+   
+  </table>
+
+    <!-- <div *ngIf="!currentUser">
+      <br />
+      <p>Select a user !</p>
+    </div> -->
+</div>
