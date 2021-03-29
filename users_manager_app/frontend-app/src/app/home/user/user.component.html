@@ -1,4 +1,7 @@
-  <div class="current" *ngIf="currentUser">
+
+<div class="current" *ngIf="currentUser">
+        <p>{{ message }}</p>
+
     <form class="form">
       <div class="group">
         <label for="email">Username</label>
@@ -31,7 +34,6 @@
     </div>
 
     
-    <p>{{ message }}</p>
   </div>
 
   <div class="current" *ngIf="!currentUser">

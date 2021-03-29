@@ -14,10 +14,12 @@ var UserComponent = /** @class */ (function () {
         this.route = route;
         this.router = router;
         this.currentUser = null;
-        this.message = '';
+        this.success = '';
+        this.error = '';
     }
     UserComponent.prototype.ngOnInit = function () {
-        this.message = '';
+        this.success = '';
+        this.error = '';
         this.getUser(this.route.snapshot.paramMap.get('id'));
     };
     UserComponent.prototype.getUser = function (id) {
@@ -25,12 +27,12 @@ var UserComponent = /** @class */ (function () {
         this.userService.get(id)
             .subscribe(function (data) {
             _this.currentUser = data;
-            console.log(data);
         }, function (error) {
             console.log(error);
         });
     };
     UserComponent.prototype.update = function (status) {
+        var _this = this;
         var data = {
             username: this.currentUser.username,
             email: this.currentUser.email,
@@ -41,6 +43,7 @@ var UserComponent = /** @class */ (function () {
         this.userService.update(this.currentUser.id, data)
             .subscribe(function (response) {
             console.log(response);
+            _this.router.navigate(['/users']);
         }, function (error) {
             console.log(error);
         });

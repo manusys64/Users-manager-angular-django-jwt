@@ -3,8 +3,8 @@
         <div class="brand">
             Users Manager
         </div>
-        <nav class="nav" *ngIf="authService.currentUserValue.username">
-            <div class="nav-item user"
+        <nav class="nav">
+            <div class="nav-item user"  *ngIf="authService.currentUserValue.username"
                 >
                 {{ authService.currentUserValue.username }}
             </div>

@@ -10,7 +10,8 @@ import { UserService } from 'src/app/core';
 export class UserComponent implements OnInit {
 
   currentUser = null;
-  message = '';
+  success = '';
+  error = ''
 
   constructor(
     private userService: UserService,
@@ -18,7 +19,8 @@ export class UserComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.message = '';
+    this.success = '';
+    this.error = '';
     this.getUser(this.route.snapshot.paramMap.get('id'));
   }
 
@@ -27,7 +29,6 @@ export class UserComponent implements OnInit {
       .subscribe(
         data => {
           this.currentUser = data;
-          console.log(data);
         },
         error => {
           console.log(error);
@@ -49,6 +50,7 @@ export class UserComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
+          this.router.navigate(['/users']);
         },
         error => {
           console.log(error);
