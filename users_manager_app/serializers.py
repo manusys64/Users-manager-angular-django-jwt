@@ -12,10 +12,15 @@ class RegisterSerializer(serializers.ModelSerializer):
             'password':{'write_only': True},
         }
     def create(self, validated_data):
+        data = {}
+        if 'first_name' in validated_data:
+            data['first_name'] = validated_data['first_name']
+        if 'last_name' in validated_data:
+            data['last_name'] = validated_data['last_name']
         # user = User.objects.create_user(validated_data['username'],validated_data['email'],validated_data['first_name'],validated_data['last_name'],     password = validated_data['password'] ,  )
         user = User.objects.create_user(validated_data['username'],
-        email=validated_data['username'],
-        password=validated_data['password'])
+        email=validated_data['email'],
+        password=validated_data['password'] , **data)
         return user
 
 class UserSerializer(serializers.ModelSerializer):

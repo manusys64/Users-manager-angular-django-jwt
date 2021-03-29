@@ -39,8 +39,13 @@ class UserViewSet(viewsets.ModelViewSet):
                 self.permission_classes = [IsOwner]
         return super(self.__class__, self).get_permissions()
     def create(self, validated_data):
-        return
-    
+        if "password" in validated_data:
+            from django.contrib.auth.hashers import make_password
+            validated_data["password"] = make_password(validated_data["password"])
+            user = User.objects.create_user(validated_data)
+            # return self.create(validated_data)
+        # super(User, self).save(validated_data)
+            return user
 class IsSuperUser(BasePermission):
     
     def has_permission(self, request, view):

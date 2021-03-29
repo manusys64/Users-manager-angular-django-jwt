@@ -3,8 +3,8 @@
        
     <form class="form">
       <div class="group">
-        <label for="email">Username</label>
-        <input type="email" name="username" [(ngModel)]="user.username"/>
+        <label for="Username">Username</label>
+        <input type="text" name="username" [(ngModel)]="user.username"/>
       </div>
       <div *ngIf="errors.username" class="invalid-feedback">
         {{errors.username}}
@@ -37,13 +37,13 @@
       <div *ngIf="errors.password" class="invalid-feedback">
         {{errors.password}}
     </div>
-    <div class="group">
+    <!-- <div class="group">
         <label for="super">Super</label>
         <input class="checkbox" type="checkbox" name="is_superuser" [(ngModel)]="user.is_superuser"/>
       </div>
       <div *ngIf="errors.is_superuser" class="invalid-feedback">
         {{errors.is_superuser}}
-    </div>
+    </div> -->
       
     </form>
 

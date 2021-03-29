@@ -35,22 +35,32 @@ export class NewUserComponent implements OnInit {
       first_name: this.user.first_name,
       last_name: this.user.last_name,
       password: this.user.password,
-      is_superuser: this.user.is_superuser,
     };
 
     this.userService.create(data)
       .subscribe(
         response => {
-          console.log(response);
+
           this.submitted = true;
-          setTimeout(() => {
-            this.router.navigate(['/users']);
-          }, 1000);
+          // if (this.user.is_superuser) {
+          //   data['is_superuser'] = true
+          //   this.userService.update(response.user.id, data).subscribe(response => {
+          //     setTimeout(() => {
+          //     this.router.navigate(['/users']);
+          //   }, 1000);
+          //   })
+          // } else {
+            setTimeout(() => {
+              this.router.navigate(['/users']);
+            }, 1000);
+          // }
          
         },
         error => {
           this.errors = error.error;
         });
+    
+
   }
 
   
