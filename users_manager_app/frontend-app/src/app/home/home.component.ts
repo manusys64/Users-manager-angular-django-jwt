@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { first } from 'rxjs/operators';
 import { AuthService, User, UserService } from '../core';
 
 @Component({
@@ -12,6 +13,7 @@ export class HomeComponent implements OnInit {
   faPowerOff = faPowerOff;
   accessToken = '';
   refreshToken = '';
+  isAuth = false;
   constructor(
       private route: ActivatedRoute,
       private router: Router,
@@ -20,8 +22,11 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.accessToken = localStorage.getItem('access_token');
-    this.refreshToken = localStorage.getItem('refresh_token');
+   
+    this.userService.get(this.authService.currentUserValue.user_id).pipe(first())
+      .subscribe(data => {
+        this.isAuth = data.is_superuser=="1"
+      })
   }
   logout(): void {
     this.authService.logout();

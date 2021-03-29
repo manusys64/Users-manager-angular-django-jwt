@@ -14,10 +14,11 @@ var UserService = /** @class */ (function () {
     function UserService(http, authService) {
         this.http = http;
         this.authService = authService;
+        this.token = this.authService.currentUserValue ? this.authService.currentUserValue.token : '';
         this.httpOptions = {
             headers: new http_1.HttpHeaders({
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + this.authService.currentUserValue.token
+                'Authorization': 'Bearer ' + this.token
             })
         };
     }

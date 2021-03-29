@@ -8,10 +8,11 @@ import { AuthService } from './auth.service';
 @Injectable({ providedIn: 'root' })
 export class UserService {
     constructor(private http: HttpClient , private authService: AuthService) { }
+    token = this.authService.currentUserValue  ? this.authService.currentUserValue.token : ''
     httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.authService.currentUserValue.token   
+          'Authorization': 'Bearer ' + this.token 
       })
     };
     getAll() {

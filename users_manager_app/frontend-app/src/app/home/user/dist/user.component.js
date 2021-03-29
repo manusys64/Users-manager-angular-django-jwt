@@ -9,8 +9,9 @@ exports.__esModule = true;
 exports.UserComponent = void 0;
 var core_1 = require("@angular/core");
 var UserComponent = /** @class */ (function () {
-    function UserComponent(userService, route, router) {
+    function UserComponent(userService, authService, route, router) {
         this.userService = userService;
+        this.authService = authService;
         this.route = route;
         this.router = router;
         this.currentUser = null;

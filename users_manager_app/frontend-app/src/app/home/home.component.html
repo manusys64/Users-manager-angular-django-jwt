@@ -7,6 +7,7 @@
             <div class="nav-item user"  *ngIf="authService.currentUserValue.username"
                 >
                 {{ authService.currentUserValue.username }}
+                &nbsp; <sup *ngIf="isAuth">(Super User)</sup>
             </div>
             <div (click)="logout()" class="nav-item logout">
                 <fa-icon [icon]="faPowerOff"></fa-icon>
@@ -16,7 +17,7 @@
 
     <section class="container">
        
-        <div class="users" *ngIf="authService.currentUserValue.is_superuser">
+        <div class="users" *ngIf="isAuth">
                 <div class="nav">
                         <a routerLink="users" routerLinkActive="nav-item-active" class="nav-item">Users</a>
                         <a routerLink="add" routerLinkActive="nav-item-active" class="nav-item">Add</a>
@@ -26,7 +27,7 @@
                     <router-outlet></router-outlet>
                 </div>
         </div>
-        <div class="users" *ngIf="!authService.currentUserValue.is_superuser">
+        <div class="users" *ngIf="!isAuth">
                 
 
                 <div class="content">

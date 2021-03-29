@@ -9,6 +9,7 @@ exports.__esModule = true;
 exports.HomeComponent = void 0;
 var core_1 = require("@angular/core");
 var free_solid_svg_icons_1 = require("@fortawesome/free-solid-svg-icons");
+var operators_1 = require("rxjs/operators");
 var HomeComponent = /** @class */ (function () {
     function HomeComponent(route, router, authService, userService) {
         this.route = route;
@@ -18,10 +19,14 @@ var HomeComponent = /** @class */ (function () {
         this.faPowerOff = free_solid_svg_icons_1.faPowerOff;
         this.accessToken = '';
         this.refreshToken = '';
+        this.isAuth = false;
     }
     HomeComponent.prototype.ngOnInit = function () {
-        this.accessToken = localStorage.getItem('access_token');
-        this.refreshToken = localStorage.getItem('refresh_token');
+        var _this = this;
+        this.userService.get(this.authService.currentUserValue.user_id).pipe(operators_1.first())
+            .subscribe(function (data) {
+            _this.isAuth = data.is_superuser == "1";
+        });
     };
     HomeComponent.prototype.logout = function () {
         this.authService.logout();
