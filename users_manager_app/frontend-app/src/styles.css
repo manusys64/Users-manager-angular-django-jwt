@@ -132,8 +132,8 @@ input[type="radio"]{
 .form-inner form .field input{
   height: 100%;
   width: 100%;
-  outline: none;
   padding-left: 15px;
+  outline: none;
   border-radius: 5px;
   border: 1px solid lightgrey;
   border-bottom-width: 2px;
@@ -236,7 +236,7 @@ form .btn input[type="submit"]{
 }
 
 .btn-close, .btn-red {
-    background-color: #e74242;
+    background-color: #922b2b;
     color: white;
 }
 
@@ -247,7 +247,7 @@ form .btn input[type="submit"]{
 
 
 .btn-green {
-    background-color: #1a740e;
+    background-color: #1d6813;
     color: white;
     
 }

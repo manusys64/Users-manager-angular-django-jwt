@@ -24,10 +24,10 @@
     flex: 0 1 60%;
     margin: 0.2rem 0;
     padding: 0.2rem 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    
     outline: none;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    font-size: 1rem;
     transition: all 0.1 ease;
     border-radius: 4px;
 }
@@ -38,10 +38,13 @@
 }
 
 .new .form input:focus {
-    border: 1px solid rgb(73, 73, 73);
-    box-shadow: 0 0 0.1rem 0.05rem rgb(73, 73, 73);
+    /* border: 1px solid rgb(73, 73, 73); */
+        border: 1px solid #2B3F56;
+
+    /* box-shadow: 0 0 0.1rem 0.05rem rgb(73, 73, 73); */
 
 }
+
 
 .new .param {
     display: flex;
