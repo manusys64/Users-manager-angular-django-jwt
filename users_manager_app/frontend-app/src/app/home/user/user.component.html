@@ -20,8 +20,9 @@
           <input type="text" name="last_name" [(ngModel)]="currentUser.last_name"/>
         </div>
     <div class="group">
-        <label for="password">Password</label>
-        <input type="password" name="password" [(ngModel)]="currentUser.password"/>
+        <label *ngIf="!password" for="changepassword?" class="link" (click)="password = !password"> change password ?</label>
+        <label *ngIf="password" for="password">Password</label>
+        <input [disabled]="!password" type="password" name="password" [(ngModel)]="currentUser.password"/>
       </div>
       <div class="group">
         <label for="super">Super </label>

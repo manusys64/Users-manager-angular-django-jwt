@@ -25,7 +25,9 @@ export class HomeComponent implements OnInit {
    
     this.userService.get(this.authService.currentUserValue.user_id).pipe(first())
       .subscribe(data => {
-        this.isAuth = data.is_superuser=="1"
+        this.isAuth = data.is_superuser
+      }), (error => {
+        console.log(error)
       })
   }
   logout(): void {

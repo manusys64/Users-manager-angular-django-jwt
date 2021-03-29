@@ -25,7 +25,9 @@ var HomeComponent = /** @class */ (function () {
         var _this = this;
         this.userService.get(this.authService.currentUserValue.user_id).pipe(operators_1.first())
             .subscribe(function (data) {
-            _this.isAuth = data.is_superuser == "1";
+            _this.isAuth = data.is_superuser;
+        }), (function (error) {
+            console.log(error);
         });
     };
     HomeComponent.prototype.logout = function () {

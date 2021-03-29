@@ -32,8 +32,11 @@ var UserService = /** @class */ (function () {
         return this.http.post(environment_1.environment.apiUrl + "/api/register/", data);
     };
     UserService.prototype.update = function (id, data) {
-        return this.http.put(environment_1.environment.apiUrl + "/" + environment_1.environment.userApi + "/" + id + "/", data, this.httpOptions);
+        return this.http.patch(environment_1.environment.apiUrl + "/" + environment_1.environment.userApi + "/" + id + "/", data, this.httpOptions);
     };
+    // patch(id : number , data) {
+    //     return this.http.patch<any>(`${environment.apiUrl}/${environment.userApi}/${id}/`, data, this.httpOptions)
+    // }
     UserService.prototype["delete"] = function (id) {
         return this.http["delete"](environment_1.environment.apiUrl + "/" + environment_1.environment.userApi + "/" + id + "/", this.httpOptions);
     };

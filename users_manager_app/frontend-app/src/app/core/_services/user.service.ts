@@ -26,8 +26,11 @@ export class UserService {
         return this.http.post<any>(`${environment.apiUrl}/api/register/`, data)
     }
     update(id : number , data) {
-        return this.http.put<any>(`${environment.apiUrl}/${environment.userApi}/${id}/`, data, this.httpOptions)
+        return this.http.patch<any>(`${environment.apiUrl}/${environment.userApi}/${id}/`, data, this.httpOptions)
     }
+    // patch(id : number , data) {
+    //     return this.http.patch<any>(`${environment.apiUrl}/${environment.userApi}/${id}/`, data, this.httpOptions)
+    // }
     delete(id : number) {
         return this.http.delete<any>(`${environment.apiUrl}/${environment.userApi}/${id}/`, this.httpOptions)
     }

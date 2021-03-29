@@ -53,3 +53,8 @@
 .current .param > *:not(:last-child) {
     margin-right: 0.5rem;
 }
+
+.group .link {
+    color: rgb(0, 102, 255);
+    cursor: pointer;
+}

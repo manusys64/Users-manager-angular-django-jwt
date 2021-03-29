@@ -10,9 +10,10 @@ import { AuthService, UserService } from 'src/app/core';
 export class UserComponent implements OnInit {
 
   currentUser = null;
+  originalData = null
   success = '';
   error = ''
-
+  password = false;
   constructor(
     private userService: UserService,
     private authService: AuthService,
@@ -30,6 +31,8 @@ export class UserComponent implements OnInit {
       .subscribe(
         data => {
           this.currentUser = data;
+          this.originalData = data;
+          this.currentUser.password = ''
         },
         error => {
           console.log(error);
@@ -38,16 +41,15 @@ export class UserComponent implements OnInit {
 
   update(status): void {
 
-    const data = {
-      username: this.currentUser.username,
-      email: this.currentUser.email,
-      first_name: this.currentUser.first_name,
-      last_name: this.currentUser.last_name,
-      password: this.currentUser.password,
-      is_superuser: this.currentUser.is_superuser,
+    var data = {
+      username: this.currentUser.username ?? this.originalData.username,
+      email: this.currentUser.email ?? this.originalData.email,
+      first_name: this.currentUser.first_name ?? this.originalData.first_name,
+      last_name: this.currentUser.last_name ?? this.originalData.last_name,
+      is_superuser: this.currentUser.is_superuser ?? this.originalData.is_superuser,
       
     };
-
+    if(this.password) data['password'] = this.currentUser.password
     this.userService.update(this.currentUser.id, data)
       .subscribe(
         response => {

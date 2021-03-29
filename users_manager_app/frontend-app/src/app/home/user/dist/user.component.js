@@ -15,8 +15,10 @@ var UserComponent = /** @class */ (function () {
         this.route = route;
         this.router = router;
         this.currentUser = null;
+        this.originalData = null;
         this.success = '';
         this.error = '';
+        this.password = false;
     }
     UserComponent.prototype.ngOnInit = function () {
         this.success = '';
@@ -28,20 +30,24 @@ var UserComponent = /** @class */ (function () {
         this.userService.get(id)
             .subscribe(function (data) {
             _this.currentUser = data;
+            _this.originalData = data;
+            _this.currentUser.password = '';
         }, function (error) {
             console.log(error);
         });
     };
     UserComponent.prototype.update = function (status) {
         var _this = this;
+        var _a, _b, _c, _d, _e;
         var data = {
-            username: this.currentUser.username,
-            email: this.currentUser.email,
-            first_name: this.currentUser.first_name,
-            last_name: this.currentUser.last_name,
-            password: this.currentUser.password,
-            is_superuser: this.currentUser.is_superuser
+            username: (_a = this.currentUser.username) !== null && _a !== void 0 ? _a : this.originalData.username,
+            email: (_b = this.currentUser.email) !== null && _b !== void 0 ? _b : this.originalData.email,
+            first_name: (_c = this.currentUser.first_name) !== null && _c !== void 0 ? _c : this.originalData.first_name,
+            last_name: (_d = this.currentUser.last_name) !== null && _d !== void 0 ? _d : this.originalData.last_name,
+            is_superuser: (_e = this.currentUser.is_superuser) !== null && _e !== void 0 ? _e : this.originalData.is_superuser
         };
+        if (this.password)
+            data['password'] = this.currentUser.password;
         this.userService.update(this.currentUser.id, data)
             .subscribe(function (response) {
             console.log(response);
