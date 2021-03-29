@@ -10,10 +10,11 @@ exports.HomeComponent = void 0;
 var core_1 = require("@angular/core");
 var free_solid_svg_icons_1 = require("@fortawesome/free-solid-svg-icons");
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(route, router, authService) {
+    function HomeComponent(route, router, authService, userService) {
         this.route = route;
         this.router = router;
         this.authService = authService;
+        this.userService = userService;
         this.faPowerOff = free_solid_svg_icons_1.faPowerOff;
         this.accessToken = '';
         this.refreshToken = '';

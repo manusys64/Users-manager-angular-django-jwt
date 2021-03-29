@@ -16,7 +16,7 @@
 
     <section class="container">
        
-        <div class="users">
+        <div class="users" *ngIf="authService.currentUserValue.is_superuser">
                 <div class="nav">
                         <a routerLink="users" routerLinkActive="nav-item-active" class="nav-item">Users</a>
                         <a routerLink="add" routerLinkActive="nav-item-active" class="nav-item">Add</a>
@@ -26,6 +26,12 @@
                     <router-outlet></router-outlet>
                 </div>
         </div>
-        
+        <div class="users" *ngIf="!authService.currentUserValue.is_superuser">
+                
+
+                <div class="content">
+                    Sorry ! you are not a super user !
+                </div>
+        </div>
     </section>
 </div>

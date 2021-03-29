@@ -24,8 +24,11 @@ var UserService = /** @class */ (function () {
     UserService.prototype.getAll = function () {
         return this.http.get(environment_1.environment.apiUrl + "/api/users/", this.httpOptions);
     };
+    // create(data) {
+    //     return this.http.post<any>(`${environment.apiUrl}/${environment.userApi}/`, data, this.httpOptions)
+    // }
     UserService.prototype.create = function (data) {
-        return this.http.post(environment_1.environment.apiUrl + "/" + environment_1.environment.userApi + "/", data, this.httpOptions);
+        return this.http.post(environment_1.environment.apiUrl + "/api/register/", data);
     };
     UserService.prototype.update = function (id, data) {
         return this.http.put(environment_1.environment.apiUrl + "/" + environment_1.environment.userApi + "/" + id + "/", data, this.httpOptions);

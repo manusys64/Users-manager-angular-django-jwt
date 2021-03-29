@@ -45,7 +45,6 @@ export class AuthService {
     }
     register(username: string, password: string , confirm_password: string , email: string  ) {
         return this.http.post<any>(`${environment.apiUrl}/api/register/`, { username, password , confirm_password , email  })
-            
     }
     refreshToken() {
         console.log('this.currentUserValue.refreshToken')

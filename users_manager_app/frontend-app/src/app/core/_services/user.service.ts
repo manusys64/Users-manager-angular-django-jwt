@@ -18,8 +18,11 @@ export class UserService {
         return this.http.get<User[]>(`${environment.apiUrl}/api/users/`, this.httpOptions);    
     }
 
+    // create(data) {
+    //     return this.http.post<any>(`${environment.apiUrl}/${environment.userApi}/`, data, this.httpOptions)
+    // }
     create(data) {
-        return this.http.post<any>(`${environment.apiUrl}/${environment.userApi}/`, data, this.httpOptions)
+        return this.http.post<any>(`${environment.apiUrl}/api/register/`, data)
     }
     update(id : number , data) {
         return this.http.put<any>(`${environment.apiUrl}/${environment.userApi}/${id}/`, data, this.httpOptions)

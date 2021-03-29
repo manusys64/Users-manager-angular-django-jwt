@@ -44,8 +44,7 @@ export class NewUserComponent implements OnInit {
           setTimeout(() => {
             this.router.navigate(['/users']);
           }, 1000);
-
-          
+         
         },
         error => {
           this.errors = error.error;
