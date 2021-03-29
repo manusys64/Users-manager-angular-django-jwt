@@ -44,6 +44,7 @@ export class UserComponent implements OnInit {
       first_name: this.currentUser.first_name,
       last_name: this.currentUser.last_name,
       password: this.currentUser.password,
+      is_superuser: this.currentUser.is_superuser,
       
     };
 

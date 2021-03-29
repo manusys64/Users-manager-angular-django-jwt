@@ -37,6 +37,13 @@
       <div *ngIf="errors.password" class="invalid-feedback">
         {{errors.password}}
     </div>
+    <div class="group">
+        <label for="super">Super</label>
+        <input class="checkbox" type="checkbox" name="is_superuser" [(ngModel)]="user.is_superuser"/>
+      </div>
+      <div *ngIf="errors.is_superuser" class="invalid-feedback">
+        {{errors.is_superuser}}
+    </div>
       
     </form>
 

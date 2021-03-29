@@ -24,7 +24,7 @@ var routes = [
         component: home_component_1.HomeComponent,
         canActivate: [core_2.AuthGuard],
         children: [
-            // { path: '', redirectTo: 'users', pathMatch: 'full' },
+            { path: '', redirectTo: 'users', pathMatch: 'full' },
             { path: 'users', component: users_component_1.UsersComponent },
             { path: 'users/:id', component: user_component_1.UserComponent },
             { path: 'add', component: new_user_component_1.NewUserComponent }

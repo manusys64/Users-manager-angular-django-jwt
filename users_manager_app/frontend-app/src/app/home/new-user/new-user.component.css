@@ -30,6 +30,11 @@
     border-bottom: 1px solid rgb(66, 63, 63) ;
     transition: all 0.1 ease;
 }
+.new .form input.checkbox {
+    flex: unset;
+    padding: 0.2rem;
+    cursor: pointer;
+}
 
 .new .form input:focus {
     border-bottom: 1px solid transparent ;

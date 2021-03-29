@@ -23,6 +23,10 @@
         <label for="password">Password</label>
         <input type="password" name="password" [(ngModel)]="currentUser.password"/>
       </div>
+      <div class="group">
+        <label for="super">Super </label>
+        <input class="checkbox" type="checkbox" name="is_superuser" [(ngModel)]="currentUser.is_superuser"/>
+      </div>
       
     </form>
 

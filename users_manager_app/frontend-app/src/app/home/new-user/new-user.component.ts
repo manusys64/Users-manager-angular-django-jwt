@@ -14,6 +14,7 @@ export class NewUserComponent implements OnInit {
     first_name: '',
     last_name: '',
     password: '',
+    is_superuser : false,
     
   };
   errors = {}
@@ -34,6 +35,7 @@ export class NewUserComponent implements OnInit {
       first_name: this.user.first_name,
       last_name: this.user.last_name,
       password: this.user.password,
+      is_superuser: this.user.is_superuser,
     };
 
     this.userService.create(data)

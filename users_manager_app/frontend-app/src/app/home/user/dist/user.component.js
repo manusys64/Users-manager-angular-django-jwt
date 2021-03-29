@@ -39,7 +39,8 @@ var UserComponent = /** @class */ (function () {
             email: this.currentUser.email,
             first_name: this.currentUser.first_name,
             last_name: this.currentUser.last_name,
-            password: this.currentUser.password
+            password: this.currentUser.password,
+            is_superuser: this.currentUser.is_superuser
         };
         this.userService.update(this.currentUser.id, data)
             .subscribe(function (response) {

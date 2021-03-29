@@ -50,6 +50,16 @@
                 {{ currentUser.email || "N/A"}}
               </div>
             </div>
+                        <div class="item">
+              <label class="label">
+                <strong>Super</strong>
+              </label>
+              
+              <div class="value">
+                
+                {{ currentUser.is_superuser}}
+              </div>
+            </div>
             <div class="item param">
 
               <a class="edit" routerLink="/users/{{ currentUser.id }}">
@@ -73,6 +83,9 @@
                 <th>
                     Name
                 </th>
+                 <th>
+                    super ?
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -89,6 +102,9 @@
             </td>
             <td class="name item">
                 {{ (user.first_name + ' ' +  user.last_name).length > 2 ? (user.first_name + ' ' +  user.last_name): "N/A"}}
+            </td>
+            <td class="name item">
+                {{ user.is_superuser}}
             </td>
         </tr>
         

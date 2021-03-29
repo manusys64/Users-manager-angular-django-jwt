@@ -18,7 +18,8 @@ var NewUserComponent = /** @class */ (function () {
             email: '',
             first_name: '',
             last_name: '',
-            password: ''
+            password: '',
+            is_superuser: false
         };
         this.errors = {};
         this.submitted = false;
@@ -32,7 +33,8 @@ var NewUserComponent = /** @class */ (function () {
             email: this.user.email,
             first_name: this.user.first_name,
             last_name: this.user.last_name,
-            password: this.user.password
+            password: this.user.password,
+            is_superuser: this.user.is_superuser
         };
         this.userService.create(data)
             .subscribe(function (response) {
